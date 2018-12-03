@@ -2,9 +2,21 @@
     <xsl:template match="/root" name="wurui.img-sections">
         <!-- className 'J_OXMod' required  -->
         <div class="J_OXMod oxmod-img-sections" ox-mod="img-sections">
-            <h1>
-                This is mod img-sections;
-            </h1>
+            <ul>
+	            <xsl:for-each select="data/ui-imglist/i">
+	            	<li>
+	            		<xsl:if test="title !='' ">
+	            			<div class="text-box">
+	            				<h2><xsl:value-of select="title" disable-output-escaping="yes" /></h2>
+	            				
+	            			</div>
+	            		</xsl:if>
+	            		<a href="{href}">
+		            		<img src="{img}"/>
+		            	</a>
+	            	</li>
+	            </xsl:for-each>
+	        </ul>
         </div>
     </xsl:template>
 </xsl:stylesheet>
